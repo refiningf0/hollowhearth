@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hollowhearth</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="game"></canvas>
+
+  <div id="hud" class="hidden">
+    <div id="tl">
+      <div class="panel" id="player-card">
+        <canvas id="portrait" width="104" height="104"></canvas>
+        <div class="pc-info">
+          <div id="pc-name"></div>
+          <div id="pc-sub"></div>
+          <div class="hpbar"><div id="hp-fill"></div><div id="shield-fill"></div><span id="hp-text"></span></div>
+        </div>
+      </div>
+      <div class="panel" id="resources"></div>
+      <div id="buffs"></div>
+      <div id="party-frame" class="panel hidden"></div>
+    </div>
+
+    <div id="zone-title" class="panel"></div>
+    <div id="boss-bar" class="hidden"><div class="bb-name"></div><div class="bb-bar"><div class="bb-fill"></div></div></div>
+
+    <div id="tr">
+      <canvas id="minimap" width="200" height="150"></canvas>
+      <div id="clock"></div>
+      <div id="quest" class="panel"></div>
+      <div id="quest-hint">Click a quest line to get an arrow at your feet</div>
+    </div>
+
+    <div id="bottom">
+      <div id="build-hint">[L] change build</div>
+      <div id="abilities"></div>
+    </div>
+
+    <div id="menu-buttons">
+      <button data-k="i" title="Inventory">Inventory <b>I</b></button>
+      <button data-k="j" title="Journal">Journal <b>J</b></button>
+      <button data-k="k" title="Almanac">Almanac <b>K</b></button>
+      <button data-k="p" title="Players &amp; party">Party <b>P</b></button>
+      <button data-k="b" title="Build" id="btn-build">Build <b>B</b></button>
+      <button data-k="h" title="Controls">Help <b>H</b></button>
+    </div>
+
+    <div id="almanac-toast" class="panel hidden"></div>
+    <div id="chat"><div id="chat-log"></div><input id="chat-input" maxlength="200" placeholder="Enter to chat · /p party · /g everyone" autocomplete="off"></div>
+    <div id="toasts"></div>
+    <div id="big-toast"></div>
+  </div>
+
+  <div id="panels"></div>
+
+  <div id="login" class="screen">
+    <div class="login-box panel">
+      <div class="logo">Hollowhearth</div>
+      <div class="tagline">A cozy co-op adventure</div>
+      <div id="login-step-name">
+        <div class="login-fields">
+          <input id="login-name" maxlength="16" placeholder="Username" autocomplete="username">
+          <input id="login-pass" type="password" maxlength="64" placeholder="Password" autocomplete="current-password">
+        </div>
+        <div class="login-btns">
+          <button id="login-go" class="btn big">Log in</button>
+          <button id="login-new" class="btn big green">Create account</button>
+        </div>
+        <div class="login-note">First time? Pick a username and password, then click Create account. Next time, just log in to load your save.</div>
+      </div>
+      <div id="login-step-class" class="hidden">
+        <div class="pick-title">Choose your class</div>
+        <div id="class-cards"></div>
+        <button id="class-back" class="btn small" style="margin-top:12px">Back</button>
+      </div>
+      <div id="login-err"></div>
+    </div>
+  </div>
+
+  <div id="death" class="screen hidden">
+    <div class="death-box panel">
+      <div class="death-title">You were knocked out!</div>
+      <div class="tip"><b>Tip:</b> <span id="death-tip"></span></div>
+      <div class="death-btns">
+        <button id="respawn-here" class="btn big">Get back up</button>
+        <button id="respawn-village" class="btn">Return to village</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="sleep-overlay" class="screen hidden">
+    <div class="sleep-box">
+      <div class="zzz">Z z z</div>
+      <div id="sleep-text">Sleeping...</div>
+      <button id="wake-btn" class="btn">Get up</button>
+    </div>
+  </div>
+
+  <script src="/shared/data.js"></script>
+  <script src="js/music.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

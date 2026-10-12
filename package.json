@@ -1,0 +1,12 @@
+{
+  "name": "hollowhearth",
+  "version": "1.0.0",
+  "description": "Hollowhearth - a cozy co-op multiplayer action RPG",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  }
+}

@@ -1,0 +1,11 @@
+# player accounts and progress (contains password hashes) - never upload
+saves/
+
+# installed by "npm install" / downloaded on first run of start-online.bat
+node_modules/
+tools/cloudflared/
+
+# local tool settings
+.claude/
+*.part
+*.tmp
